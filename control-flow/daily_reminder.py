@@ -19,23 +19,14 @@ while True:
     else:
         print("Please answer with 'yes' or 'no'.")
 
-# Provide the reminder using match-case
-match priority:
-    case "high":
-        message = f"Reminder: '{task}' is a high priority task"
-    case "medium":
-        message = f"Reminder: '{task}' is a medium priority task"
-    case "low":
-        message = f"Note: '{task}' is a low priority task"
+# Construct the base message
+message = f"Reminder: '{task}' is a {priority} priority task"
 
-# Add time-sensitivity if applicable
+# Add time-sensitivity message
 if time_bound == "yes":
     message += " that requires immediate attention today!"
 else:
-    if priority == "low":
-        message += ". Consider completing it when you have free time."
-    else:
-        message += " but it can be scheduled appropriately."
+    message += "."
 
-# Print the final message
+# Print final reminder
 print("\n" + message)
